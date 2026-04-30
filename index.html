@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Reyna Bulchandani — first-year reading Mathematics & Computer Science at Oxford.">
+<meta name="theme-color" content="#0a2342">
+<meta property="og:title" content="Reyna Bulchandani">
+<meta property="og:description" content="Maths & CS at Oxford. Recent Jane Street first-year alum.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://reyna.bulchandanis.com">
+<title>Reyna Bulchandani — Maths &amp; CS at Oxford</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<noscript><style>.reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
+<style>
+  :root {
+    --bg: #fdfcfa;
+    --bg-soft: #f4f1eb;
+    --bg-card: #ffffff;
+    --text: #0e1424;
+    --text-soft: #475066;
+    --text-muted: #6c7588;
+    --rule: #e2dfd6;
+    --rule-strong: #b8b3a4;
+    --oxford: #002147;
+    --oxford-soft: hsl(213, 80%, 32%);
+    --accent: hsl(36, 90%, 48%);
+    --grid-line: rgba(14, 20, 36, 0.045);
+    --maxw: 1080px;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--text);
+    background:
+      linear-gradient(to bottom, var(--bg), var(--bg)),
+      repeating-linear-gradient(0deg, var(--grid-line) 0, var(--grid-line) 1px, transparent 1px, transparent 32px),
+      repeating-linear-gradient(90deg, var(--grid-line) 0, var(--grid-line) 1px, transparent 1px, transparent 32px);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  a { color: var(--text); text-decoration: none; }
+  :focus { outline: none; }
+  :focus-visible { outline: 2px solid var(--oxford); outline-offset: 4px; border-radius: 4px; }
+  .container { max-width: var(--maxw); margin: 0 auto; padding: 0 28px; width: 100%; }
+  main { flex: 1; }
+  .mono {
+    font-family: 'JetBrains Mono', 'SF Mono', monospace;
+    font-feature-settings: "ss01", "ss02";
+  }
+
+  /* === MASTHEAD === */
+  .masthead {
+    border-bottom: 1px solid var(--rule);
+    padding: 18px 0;
+    background: rgba(253, 252, 250, 0.85);
+    backdrop-filter: blur(10px);
+    position: sticky; top: 0; z-index: 50;
+  }
+  .masthead-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+  .masthead-back {
+    color: var(--text-muted);
+    transition: color 0.2s ease;
+  }
+  .masthead-back:hover { color: var(--oxford); text-decoration: none; }
+  .masthead-id {
+    color: var(--oxford);
+    font-weight: 500;
+  }
+
+  /* === HERO === */
+  .hero {
+    padding: 72px 0 56px;
+    border-bottom: 1px solid var(--rule);
+  }
+  @media (max-width: 720px) { .hero { padding: 50px 0 40px; } }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 56px;
+    align-items: start;
+  }
+  @media (max-width: 720px) { .hero-grid { grid-template-columns: 1fr; gap: 32px; text-align: center; } }
+  .hero-portrait {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1px solid var(--rule-strong);
+    box-shadow: 0 1px 3px rgba(0, 33, 71, 0.06), 0 12px 32px rgba(0, 33, 71, 0.08);
+    background: var(--bg-card);
+  }
+  .hero-portrait img { width: 100%; height: 100%; object-fit: cover; }
+  @media (max-width: 720px) {
+    .hero-portrait { width: 160px; height: 160px; margin: 0 auto; }
+  }
+  .hero-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 16px;
+  }
+  .hero-meta .dot { color: var(--accent); margin: 0 8px; }
+  .hero h1 {
+    font-family: 'Crimson Pro', 'Georgia', serif;
+    font-weight: 600;
+    font-size: clamp(48px, 7vw, 88px);
+    line-height: 1.0;
+    letter-spacing: -0.025em;
+    color: var(--text);
+    margin-bottom: 14px;
+  }
+  .hero h1 em { font-style: italic; color: var(--oxford); font-weight: 500; }
+  .hero-subhead {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--oxford);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    font-weight: 500;
+    margin-bottom: 22px;
+  }
+  .hero-deck {
+    font-family: 'Crimson Pro', serif;
+    font-size: clamp(18px, 2vw, 22px);
+    font-style: italic;
+    line-height: 1.5;
+    color: var(--text-soft);
+    max-width: 56ch;
+    margin-bottom: 28px;
+  }
+  .hero-cta {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px; font-weight: 500;
+    padding: 11px 22px;
+    background: var(--oxford);
+    color: white;
+    border-radius: 4px;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+  .hero-cta:hover {
+    background: var(--oxford-soft);
+    text-decoration: none;
+    color: white;
+    transform: translateY(-1px);
+  }
+
+  /* === SECTION === */
+  .section {
+    padding: 64px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  @media (max-width: 720px) { .section { padding: 48px 0; } }
+  .section-head {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 32px;
+    align-items: baseline;
+    margin-bottom: 36px;
+  }
+  @media (max-width: 720px) { .section-head { grid-template-columns: 1fr; gap: 8px; margin-bottom: 28px; } }
+  .section-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--accent);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+  }
+  .section h2 {
+    font-family: 'Crimson Pro', serif;
+    font-weight: 500;
+    font-size: clamp(28px, 4vw, 40px);
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    color: var(--text);
+  }
+  .section h2 em { font-style: italic; color: var(--oxford); }
+  .section-body {
+    margin-left: 132px;
+  }
+  @media (max-width: 720px) { .section-body { margin-left: 0; } }
+
+  /* === CURRENTLY === */
+  .currently p {
+    font-family: 'Crimson Pro', serif;
+    font-size: 19px;
+    line-height: 1.65;
+    color: var(--text);
+    margin-bottom: 14px;
+    max-width: 64ch;
+  }
+  .currently p:last-child { margin-bottom: 0; }
+  .currently strong { color: var(--oxford); font-weight: 600; }
+  .currently em { font-style: italic; }
+
+  /* === EXPERIENCE === */
+  .timeline { display: flex; flex-direction: column; }
+  .timeline-row {
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    gap: 32px;
+    padding: 22px 0;
+    border-top: 1px solid var(--rule);
+    align-items: start;
+  }
+  .timeline-row:last-child { border-bottom: 1px solid var(--rule); }
+  @media (max-width: 720px) { .timeline-row { grid-template-columns: 1fr; gap: 8px; padding: 18px 0; } }
+  .timeline-date {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding-top: 4px;
+  }
+  .timeline-org {
+    font-family: 'Crimson Pro', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--oxford);
+    margin-bottom: 4px;
+    letter-spacing: -0.01em;
+  }
+  .timeline-role {
+    font-size: 14px;
+    color: var(--text);
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+  .timeline-role .badge {
+    background: var(--accent);
+    color: white;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+    padding: 2px 8px;
+    margin-left: 6px;
+    border-radius: 2px;
+    vertical-align: middle;
+  }
+  .timeline-body {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--text-soft);
+    max-width: 60ch;
+  }
+
+  /* === EDUCATION === */
+  .edu-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+  @media (max-width: 720px) { .edu-grid { grid-template-columns: 1fr; } }
+  .edu-card {
+    background: var(--bg-card);
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--oxford);
+    border-radius: 4px;
+    padding: 22px 24px;
+  }
+  .edu-card h3 {
+    font-family: 'Crimson Pro', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--oxford);
+    margin-bottom: 4px;
+    letter-spacing: -0.01em;
+  }
+  .edu-card .edu-period {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 10px;
+  }
+  .edu-card .edu-degree {
+    font-size: 14.5px;
+    color: var(--text);
+    font-weight: 500;
+    margin-bottom: 10px;
+    font-style: italic;
+  }
+  .edu-card ul {
+    list-style: none;
+    padding: 0;
+    border-top: 1px solid var(--rule);
+    padding-top: 12px;
+  }
+  .edu-card li {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--text-soft);
+    padding: 4px 0;
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .edu-card li .grade {
+    color: var(--oxford);
+    font-weight: 500;
+  }
+
+  /* === ACHIEVEMENTS === */
+  .achievements {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--rule);
+  }
+  @media (max-width: 720px) { .achievements { grid-template-columns: 1fr; } }
+  .achievement {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--rule);
+    padding-right: 24px;
+  }
+  .achievement:nth-child(odd) {
+    border-right: 1px solid var(--rule);
+    padding-right: 24px;
+  }
+  @media (max-width: 720px) {
+    .achievement:nth-child(odd) { border-right: none; padding-right: 0; }
+  }
+  .achievement-cat {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    margin-bottom: 4px;
+    font-weight: 700;
+  }
+  .achievement-text {
+    font-family: 'Crimson Pro', serif;
+    font-size: 16px;
+    color: var(--text);
+    line-height: 1.45;
+  }
+  @media (max-width: 720px) {
+    .achievement:nth-child(odd) { padding-right: 0; }
+    .achievement { padding-right: 0; }
+  }
+
+  /* === CONNECT === */
+  .connect {
+    padding: 72px 0;
+    border-bottom: 1px solid var(--rule);
+    text-align: center;
+  }
+  @media (max-width: 720px) { .connect { padding: 56px 0; } }
+  .connect-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    margin-bottom: 18px;
+    font-weight: 700;
+  }
+  .connect h3 {
+    font-family: 'Crimson Pro', serif;
+    font-weight: 500;
+    font-size: clamp(28px, 4.5vw, 44px);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-bottom: 18px;
+    max-width: 22ch;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .connect h3 em { font-style: italic; color: var(--oxford); }
+  .connect p {
+    font-family: 'Crimson Pro', serif;
+    font-size: 18px;
+    line-height: 1.55;
+    color: var(--text-soft);
+    max-width: 50ch;
+    margin: 0 auto 28px;
+  }
+
+  /* === FOOTER === */
+  .site-footer {
+    padding: 24px 0;
+    margin-top: auto;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+  }
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .site-footer a { color: var(--text-muted); transition: color 0.2s ease; }
+  .site-footer a:hover { color: var(--oxford); }
+
+  /* Reveal */
+  .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1); }
+  .reveal.is-visible { opacity: 1; transform: translateY(0); }
+  .reveal[data-delay="1"] { transition-delay: 0.1s; }
+  .reveal[data-delay="2"] { transition-delay: 0.2s; }
+
+  /* Preview switcher */
+  .preview-switcher {
+    position: fixed;
+    bottom: 20px; right: 20px;
+    background: var(--text);
+    color: var(--bg);
+    border-radius: 999px;
+    padding: 6px;
+    display: flex;
+    gap: 4px;
+    z-index: 100;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    box-shadow: 0 8px 24px rgba(0, 33, 71, 0.15);
+  }
+  .preview-switcher a {
+    padding: 8px 14px;
+    border-radius: 999px;
+    color: var(--bg);
+    transition: background 0.2s ease;
+  }
+  .preview-switcher a:hover { background: rgba(255,255,255,0.08); text-decoration: none; }
+  .preview-switcher a.active { background: var(--oxford); color: white; }
+
+  /* === Mobile polish === */
+  @media (max-width: 540px) {
+    .container { padding-left: 20px; padding-right: 20px; }
+    .preview-switcher { bottom: 12px; right: 12px; padding: 4px; gap: 2px; }
+    .preview-switcher a { padding: 6px 10px; font-size: 10px; letter-spacing: 0.04em; }
+    .hero-meta { font-size: 11px; letter-spacing: 0.1em; }
+    .hero-meta .dot { margin: 0 6px; }
+    .timeline-org { font-size: 20px; }
+    .achievements .achievement { padding: 14px 0; }
+  }
+  @media (max-width: 380px) {
+    .preview-switcher a { padding: 5px 8px; font-size: 9.5px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+    .reveal { opacity: 1; transform: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="container masthead-inner">
+    <a class="masthead-back" href="https://bulchandanis.com">← bulchandanis</a>
+    <span class="masthead-id">REYNA BULCHANDANI · OXFORD MMXXVIII</span>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-portrait reveal">
+        <img src="assets/reyna.jpg" alt="" loading="eager">
+      </div>
+      <div>
+        <div class="hero-meta reveal">
+          <span>Mathematics</span><span class="dot">●</span><span>Computer Science</span><span class="dot">●</span><span>Oxford</span>
+        </div>
+        <h1 class="reveal" data-delay="1">Reyna<br><em>Bulchandani.</em></h1>
+        <div class="hero-subhead reveal" data-delay="1">Maths &amp; CS · Class of 2028</div>
+        <p class="hero-deck reveal" data-delay="2">Reading Mathematics &amp; Computer Science at Oxford. Recent Jane Street first-year alum. Curious about quant, machine learning, and the places where mathematical thinking meets the rest of the world.</p>
+        <a class="hero-cta reveal" data-delay="2" href="https://www.linkedin.com/in/reyna-bulchandani/" target="_blank" rel="noopener" aria-label="Connect with Reyna Bulchandani on LinkedIn (opens in a new tab)">
+          Connect on LinkedIn →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-num">§ 01</span>
+        <h2 class="reveal">Where I am <em>now</em>.</h2>
+      </div>
+      <div class="section-body currently reveal" data-delay="1">
+        <p>I'm a first-year undergraduate at the <strong>University of Oxford</strong> reading the <em>BA in Mathematics and Computer Science</em>, in the cohort graduating in 2028.</p>
+        <p>Most recently I completed <strong>Jane Street's First-Year Trading &amp; Technology Program</strong> in London — applying expected-value reasoning across probability games, asymmetric-information simulations, and trading-style decision making.</p>
+        <p>Outside the curriculum I'm interested in <em>quantitative finance, machine learning,</em> and the places where mathematical thinking meets real-world systems. Always happy to talk to people who think about either.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-num">§ 02</span>
+        <h2 class="reveal">Programmes &amp; <em>internships</em>.</h2>
+      </div>
+      <div class="section-body">
+        <div class="timeline">
+
+          <div class="timeline-row reveal">
+            <div class="timeline-date mono">Apr 2026<br>London</div>
+            <div>
+              <div class="timeline-org">Jane Street</div>
+              <div class="timeline-role">First-Year Trading &amp; Technology Program</div>
+              <p class="timeline-body">Explored trading concepts through probability games and simulations. Applied expected-value reasoning in strategy games involving incomplete information and dynamic decision-making, building intuition for pricing and risk through trading-style simulations with asymmetric information.</p>
+            </div>
+          </div>
+
+          <div class="timeline-row reveal">
+            <div class="timeline-date mono">Aug 2024<br>London</div>
+            <div>
+              <div class="timeline-org">Morgan Stanley</div>
+              <div class="timeline-role">Step In, Step Up — Women in STEM</div>
+              <p class="timeline-body">Selected for a competitive insight programme on applications of STEM in finance — trading, risk, and wealth management. Co-designed and pitched a prototype medical-tracking app under tight time constraints, prioritising user needs and implementation feasibility.</p>
+            </div>
+          </div>
+
+          <div class="timeline-row reveal">
+            <div class="timeline-date mono">Jul 2024<br>Woking</div>
+            <div>
+              <div class="timeline-org">INV Group</div>
+              <div class="timeline-role">UX &amp; Design Work Experience</div>
+              <p class="timeline-body">Conducted an accessibility audit of a corporate website against WCAG guidelines and real user flows. Identified three high-impact improvement areas, proposed redesigned sitemaps and navigation structures, and presented recommendations directly to the UX team — suggestions were incorporated into ongoing design work.</p>
+            </div>
+          </div>
+
+          <div class="timeline-row reveal">
+            <div class="timeline-date mono">Jul 2023<br>London</div>
+            <div>
+              <div class="timeline-org">Vodafone HQ</div>
+              <div class="timeline-role">Digital Camp &amp; Incubator</div>
+              <p class="timeline-body">Awarded a fully funded place on a five-day digital innovation programme at Vodafone HQ. Worked in teams to design and pitch a sustainability-focused technology solution within an incubator-style environment, with exposure to Python fundamentals and data analysis.</p>
+            </div>
+          </div>
+
+          <div class="timeline-row reveal">
+            <div class="timeline-date mono">Oct 2022<br>Feltham</div>
+            <div>
+              <div class="timeline-org">Cisco</div>
+              <div class="timeline-role">Pathways Work Experience<span class="badge">Won</span></div>
+              <p class="timeline-body">Selected for Cisco's Pathways programme. Led a team of six to design and pitch an inclusivity-focused educational app, coordinating development and structuring the final presentation. Awarded overall winners by a panel of Cisco professionals.</p>
+            </div>
+          </div>
+
+          <div class="timeline-row reveal">
+            <div class="timeline-date mono">Feb 2023<br>Remote</div>
+            <div>
+              <div class="timeline-org">Young Professionals</div>
+              <div class="timeline-role">Work Experience Program</div>
+              <p class="timeline-body">Completed a remote work-experience programme focused on logistics and supply-chain strategy, presenting a proposal on efficiency improvements in 3PL operations.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-num">§ 03</span>
+        <h2 class="reveal">Where I've <em>studied</em>.</h2>
+      </div>
+      <div class="section-body">
+        <div class="edu-grid">
+          <div class="edu-card reveal">
+            <h3>University of Oxford</h3>
+            <div class="edu-period">2025 — 2028</div>
+            <div class="edu-degree">BA, Mathematics &amp; Computer Science</div>
+          </div>
+          <div class="edu-card reveal" data-delay="1">
+            <h3>Lady Eleanor Holles School</h3>
+            <div class="edu-period">2018 — 2025 · A-Levels &amp; GCSEs</div>
+            <ul>
+              <li><span>Mathematics</span><span class="grade">A* · 95%</span></li>
+              <li><span>Further Mathematics</span><span class="grade">A* · 97%</span></li>
+              <li><span>Physics</span><span class="grade">A*</span></li>
+              <li><span>Computer Science</span><span class="grade">A*</span></li>
+              <li><span>EPQ — Quantum Computation</span><span class="grade">A</span></li>
+              <li><span>10 × GCSEs</span><span class="grade">9–8</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-num">§ 04</span>
+        <h2 class="reveal">Olympiads, mathematics, <em>leadership</em>.</h2>
+      </div>
+      <div class="section-body">
+        <div class="achievements">
+          <div class="achievement reveal">
+            <div class="achievement-cat">UKMT</div>
+            <div class="achievement-text">Gold — Senior Maths Challenge</div>
+          </div>
+          <div class="achievement reveal">
+            <div class="achievement-cat">UKMT</div>
+            <div class="achievement-text">Best in school · Senior Kangaroo (Distinction)</div>
+          </div>
+          <div class="achievement reveal">
+            <div class="achievement-cat">UKMT</div>
+            <div class="achievement-text">Distinction — Mathematics Olympiad for Girls</div>
+          </div>
+          <div class="achievement reveal">
+            <div class="achievement-cat">Bebras</div>
+            <div class="achievement-text">Distinction — Computational Thinking (Top 10%)</div>
+          </div>
+          <div class="achievement reveal">
+            <div class="achievement-cat">School ranking</div>
+            <div class="achievement-text">4<sup>th</sup> in Mathematics · 2<sup>nd</sup> in Computer Science</div>
+          </div>
+          <div class="achievement reveal">
+            <div class="achievement-cat">Leadership</div>
+            <div class="achievement-text">House Captain · School Council</div>
+          </div>
+          <div class="achievement reveal">
+            <div class="achievement-cat">Mentoring</div>
+            <div class="achievement-text">Digital Mentor · Peer Mentor · Junior School Volunteer</div>
+          </div>
+          <div class="achievement reveal">
+            <div class="achievement-cat">Activities</div>
+            <div class="achievement-text">Code Club · CS Extension · Maths Extension · Robotics</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="connect">
+    <div class="container">
+      <div class="connect-num reveal">§ 05</div>
+      <h3 class="reveal" data-delay="1">In <em>correspondence</em>.</h3>
+      <p class="reveal" data-delay="1">The best way to reach me is on LinkedIn. Always happy to hear from anyone interested in mathematics, computer science, quant finance, or just a curious conversation.</p>
+      <a class="hero-cta reveal" data-delay="2" href="https://www.linkedin.com/in/reyna-bulchandani/" target="_blank" rel="noopener">
+        Connect on LinkedIn →
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <span>© <span id="year"></span> Reyna Bulchandani</span>
+    <span><a href="https://bulchandanis.com">bulchandanis.com</a></span>
+  </div>
+</footer>
+
+<div class="preview-switcher" aria-label="Design previews">
+  <a href="index.html" class="active">A · Academic</a>
+  <a href="option-b.html">B · Quant</a>
+  <a href="option-c.html">C · Minimal</a>
+</div>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  (function() {
+    if (!('IntersectionObserver' in window)) { document.querySelectorAll('.reveal').forEach(el => el.classList.add('is-visible')); return; }
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) { entry.target.classList.add('is-visible'); obs.unobserve(entry.target); }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  })();
+</script>
+</body>
+</html>

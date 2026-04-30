@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Reyna Bulchandani — first-year reading Mathematics & Computer Science at Oxford.">
+<title>Reyna Bulchandani — Maths &amp; CS at Oxford (Minimalist preview)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=JetBrains+Mono:wght@400;500&display=swap">
+<noscript><style>.reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
+<style>
+  :root {
+    --bg: #ffffff;
+    --text: #0d0d0d;
+    --text-soft: #5a5a5a;
+    --text-muted: #999999;
+    --rule: #e5e5e5;
+    --maxw: 760px;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'EB Garamond', 'Georgia', serif;
+    font-size: 19px;
+    line-height: 1.65;
+    color: var(--text);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  a { color: var(--text); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; text-decoration-color: rgba(0,0,0,0.3); }
+  a:hover { text-decoration-color: currentColor; }
+  :focus { outline: none; }
+  :focus-visible { outline: 2px solid var(--text); outline-offset: 4px; }
+  .container { max-width: var(--maxw); margin: 0 auto; padding: 0 32px; width: 100%; }
+  main { flex: 1; }
+  .mono {
+    font-family: 'JetBrains Mono', 'SF Mono', monospace;
+    font-feature-settings: "ss01";
+  }
+
+  /* === MASTHEAD === */
+  .masthead {
+    border-bottom: 1px solid var(--rule);
+    padding: 24px 0;
+  }
+  .masthead-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--text-muted);
+  }
+  .masthead a {
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  .masthead a:hover { color: var(--text); }
+
+  /* === HERO === */
+  .hero {
+    padding: 90px 0 70px;
+    border-bottom: 1px solid var(--rule);
+    text-align: center;
+  }
+  @media (max-width: 720px) { .hero { padding: 60px 0 50px; } }
+  .hero-portrait {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 40px;
+    background: var(--rule);
+    filter: grayscale(0.95);
+  }
+  .hero-portrait img { width: 100%; height: 100%; object-fit: cover; }
+  @media (max-width: 540px) { .hero-portrait { width: 130px; height: 130px; } }
+
+  .hero h1 {
+    font-family: 'EB Garamond', serif;
+    font-weight: 500;
+    font-size: clamp(44px, 6vw, 72px);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    margin-bottom: 14px;
+  }
+  .hero h1 em { font-style: italic; font-weight: 400; }
+  .hero-subtitle {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.24em;
+    margin-bottom: 24px;
+  }
+  .hero-deck {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(20px, 2.4vw, 26px);
+    line-height: 1.45;
+    color: var(--text-soft);
+    max-width: 32ch;
+    margin: 0 auto;
+  }
+
+  /* === SECTIONS === */
+  .section {
+    padding: 72px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  @media (max-width: 720px) { .section { padding: 56px 0; } }
+  .section-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.24em;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+    display: block;
+  }
+  .section h2 {
+    font-family: 'EB Garamond', serif;
+    font-weight: 500;
+    font-size: clamp(28px, 3.5vw, 38px);
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    margin-bottom: 28px;
+    color: var(--text);
+  }
+  .section h2 em { font-style: italic; font-weight: 400; }
+
+  /* === CURRENTLY === */
+  .currently p {
+    font-size: 19.5px;
+    line-height: 1.7;
+    margin-bottom: 18px;
+    color: var(--text);
+  }
+  .currently p:last-child { margin-bottom: 0; }
+  .currently strong { font-weight: 600; }
+  .currently em { font-style: italic; }
+
+  /* === EXPERIENCE === */
+  .timeline {
+    counter-reset: entry;
+  }
+  .timeline-row {
+    padding: 26px 0;
+    border-top: 1px solid var(--rule);
+    counter-increment: entry;
+  }
+  .timeline-row:last-child { border-bottom: 1px solid var(--rule); }
+  .timeline-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 6px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .timeline-org {
+    font-family: 'EB Garamond', serif;
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: -0.005em;
+  }
+  .timeline-date {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+  }
+  .timeline-role {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 17px;
+    color: var(--text-soft);
+    margin-bottom: 10px;
+  }
+  .timeline-role .badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-style: normal;
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    border: 1px solid var(--text);
+    padding: 1px 7px;
+    margin-left: 6px;
+    color: var(--text);
+    vertical-align: middle;
+  }
+  .timeline-body {
+    font-size: 17px;
+    line-height: 1.65;
+    color: var(--text-soft);
+  }
+
+  /* === EDUCATION === */
+  .edu {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+  .edu-row {
+    padding-bottom: 26px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .edu-row:last-child { border-bottom: none; }
+  .edu-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 6px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .edu-org {
+    font-family: 'EB Garamond', serif;
+    font-size: 22px;
+    font-weight: 600;
+  }
+  .edu-period {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+  }
+  .edu-degree {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 17px;
+    color: var(--text-soft);
+    margin-bottom: 14px;
+  }
+  .edu-grades {
+    list-style: none;
+    padding: 0;
+    margin-top: 12px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px 24px;
+  }
+  @media (max-width: 540px) { .edu-grades { grid-template-columns: 1fr; } }
+  .edu-grades li {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--text-soft);
+    padding: 3px 0;
+    border-bottom: 1px dotted var(--rule);
+  }
+  .edu-grades li .grade { color: var(--text); font-weight: 500; }
+
+  /* === ACHIEVEMENTS === */
+  .ach {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .ach-row {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 24px;
+    padding: 14px 0;
+    border-top: 1px solid var(--rule);
+    align-items: baseline;
+  }
+  .ach-row:last-child { border-bottom: 1px solid var(--rule); }
+  @media (max-width: 540px) { .ach-row { grid-template-columns: 1fr; gap: 4px; padding: 12px 0; } }
+  .ach-cat {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--text-muted);
+  }
+  .ach-text {
+    font-family: 'EB Garamond', serif;
+    font-size: 17px;
+    color: var(--text);
+  }
+  .ach-text em { font-style: italic; }
+
+  /* === CONNECT === */
+  .connect {
+    padding: 90px 0 70px;
+    border-bottom: 1px solid var(--rule);
+    text-align: center;
+  }
+  @media (max-width: 720px) { .connect { padding: 64px 0 50px; } }
+  .connect-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.24em;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+  }
+  .connect h3 {
+    font-family: 'EB Garamond', serif;
+    font-weight: 500;
+    font-size: clamp(28px, 4vw, 40px);
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+    margin-bottom: 18px;
+    max-width: 22ch;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .connect h3 em { font-style: italic; font-weight: 400; }
+  .connect p {
+    font-size: 18px;
+    color: var(--text-soft);
+    line-height: 1.6;
+    max-width: 50ch;
+    margin: 0 auto 28px;
+    font-style: italic;
+  }
+  .connect-cta {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    text-decoration: none;
+    border-bottom: 1px solid var(--text);
+    padding-bottom: 4px;
+    color: var(--text);
+    transition: opacity 0.2s ease;
+  }
+  .connect-cta:hover { opacity: 0.6; text-decoration: none; }
+
+  /* === FOOTER === */
+  .site-footer {
+    padding: 26px 0;
+    margin-top: auto;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--text-muted);
+  }
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .site-footer a { color: var(--text-muted); text-decoration: none; }
+  .site-footer a:hover { color: var(--text); }
+
+  /* Reveal */
+  .reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.is-visible { opacity: 1; transform: translateY(0); }
+  .reveal[data-delay="1"] { transition-delay: 0.1s; }
+  .reveal[data-delay="2"] { transition-delay: 0.2s; }
+
+  /* Preview switcher */
+  .preview-switcher {
+    position: fixed;
+    bottom: 20px; right: 20px;
+    background: var(--text);
+    color: var(--bg);
+    border-radius: 0;
+    padding: 4px;
+    display: flex;
+    gap: 0;
+    z-index: 100;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  }
+  .preview-switcher a {
+    padding: 8px 14px;
+    color: var(--bg);
+    text-decoration: none;
+    transition: background 0.2s ease;
+  }
+  .preview-switcher a:hover { background: rgba(255,255,255,0.08); }
+  .preview-switcher a.active { background: var(--bg); color: var(--text); }
+
+  /* === Mobile polish === */
+  @media (max-width: 540px) {
+    .container { padding-left: 20px; padding-right: 20px; }
+    .preview-switcher { bottom: 12px; right: 12px; padding: 3px; gap: 0; }
+    .preview-switcher a { padding: 6px 10px; font-size: 10px; letter-spacing: 0.06em; }
+    .currently p { font-size: 17.5px; }
+    .timeline-body { font-size: 16px; }
+    .timeline-org, .edu-org { font-size: 20px; }
+    .ach-text { font-size: 16px; }
+  }
+  @media (max-width: 380px) {
+    .preview-switcher a { padding: 5px 8px; font-size: 9.5px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+    .reveal { opacity: 1; transform: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="container masthead-inner">
+    <a href="https://bulchandanis.com">← bulchandanis</a>
+    <span>Reyna Bulchandani · Oxford MMXXVIII</span>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-portrait reveal">
+        <img src="assets/reyna.jpg" alt="" loading="eager">
+      </div>
+      <h1 class="reveal" data-delay="1">Reyna <em>Bulchandani.</em></h1>
+      <div class="hero-subtitle reveal" data-delay="1">Mathematics &amp; Computer Science · Oxford</div>
+      <p class="hero-deck reveal" data-delay="2">Reading Maths &amp; CS at Oxford. Recent Jane Street first-year alum. Curious about quant, machine learning, and what sits between the two.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <span class="section-num reveal">I.</span>
+      <h2 class="reveal">Where I am <em>now</em>.</h2>
+      <div class="currently reveal" data-delay="1">
+        <p>I'm a first-year undergraduate at the <strong>University of Oxford</strong>, reading the <em>BA in Mathematics and Computer Science</em>, in the cohort graduating in 2028.</p>
+        <p>Most recently I completed <strong>Jane Street's First-Year Trading &amp; Technology Program</strong> in London — applying expected-value reasoning across probability games, asymmetric-information simulations, and trading-style decision making.</p>
+        <p>Outside the curriculum I'm interested in <em>quantitative finance</em>, <em>machine learning</em>, and the places where mathematical thinking meets real-world systems.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <span class="section-num reveal">II.</span>
+      <h2 class="reveal">Programmes &amp; <em>internships</em>.</h2>
+      <div class="timeline">
+
+        <div class="timeline-row reveal">
+          <div class="timeline-meta">
+            <span class="timeline-org">Jane Street</span>
+            <span class="timeline-date">April 2026 · London</span>
+          </div>
+          <div class="timeline-role">First-Year Trading &amp; Technology Program</div>
+          <p class="timeline-body">Explored trading concepts through probability games and simulations. Applied expected-value reasoning in strategy games involving incomplete information and dynamic decision-making, building intuition for pricing and risk through trading-style simulations with asymmetric information.</p>
+        </div>
+
+        <div class="timeline-row reveal">
+          <div class="timeline-meta">
+            <span class="timeline-org">Morgan Stanley</span>
+            <span class="timeline-date">Aug 2024 · London</span>
+          </div>
+          <div class="timeline-role">Step In, Step Up — Women in STEM</div>
+          <p class="timeline-body">Selected for a competitive insight programme on applications of STEM in finance — trading, risk, and wealth management. Co-designed and pitched a prototype medical-tracking app under tight time constraints.</p>
+        </div>
+
+        <div class="timeline-row reveal">
+          <div class="timeline-meta">
+            <span class="timeline-org">INV Group</span>
+            <span class="timeline-date">Jul 2024 · Woking</span>
+          </div>
+          <div class="timeline-role">UX &amp; Design Work Experience</div>
+          <p class="timeline-body">Conducted an accessibility audit of a corporate website against WCAG guidelines. Identified three high-impact improvement areas and proposed redesigned sitemaps; recommendations were incorporated into ongoing design work.</p>
+        </div>
+
+        <div class="timeline-row reveal">
+          <div class="timeline-meta">
+            <span class="timeline-org">Vodafone HQ</span>
+            <span class="timeline-date">Jul 2023 · London</span>
+          </div>
+          <div class="timeline-role">Digital Camp &amp; Incubator</div>
+          <p class="timeline-body">Awarded a fully funded place on a five-day digital innovation programme. Designed and pitched a sustainability-focused technology solution within an incubator-style environment, with exposure to Python fundamentals and data analysis.</p>
+        </div>
+
+        <div class="timeline-row reveal">
+          <div class="timeline-meta">
+            <span class="timeline-org">Cisco</span>
+            <span class="timeline-date">Oct 2022 · Feltham</span>
+          </div>
+          <div class="timeline-role">Pathways Work Experience<span class="badge">Won</span></div>
+          <p class="timeline-body">Selected for Cisco's Pathways programme. Led a team of six to design and pitch an inclusivity-focused educational app, coordinating development and structuring the final presentation. Awarded overall winners by a panel of Cisco professionals.</p>
+        </div>
+
+        <div class="timeline-row reveal">
+          <div class="timeline-meta">
+            <span class="timeline-org">Young Professionals</span>
+            <span class="timeline-date">Feb 2023 · Remote</span>
+          </div>
+          <div class="timeline-role">Work Experience Program</div>
+          <p class="timeline-body">Completed a remote work-experience programme on logistics and supply-chain strategy, presenting a proposal on efficiency improvements in 3PL operations.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <span class="section-num reveal">III.</span>
+      <h2 class="reveal">Where I've <em>studied</em>.</h2>
+      <div class="edu">
+        <div class="edu-row reveal">
+          <div class="edu-meta">
+            <span class="edu-org">University of Oxford</span>
+            <span class="edu-period">2025 — 2028</span>
+          </div>
+          <div class="edu-degree">BA, Mathematics &amp; Computer Science</div>
+        </div>
+        <div class="edu-row reveal">
+          <div class="edu-meta">
+            <span class="edu-org">Lady Eleanor Holles School</span>
+            <span class="edu-period">2018 — 2025</span>
+          </div>
+          <div class="edu-degree">A Levels, GCSEs, EPQ</div>
+          <ul class="edu-grades">
+            <li><span>Mathematics</span><span class="grade">A* · 95%</span></li>
+            <li><span>Further Mathematics</span><span class="grade">A* · 97%</span></li>
+            <li><span>Physics</span><span class="grade">A*</span></li>
+            <li><span>Computer Science</span><span class="grade">A*</span></li>
+            <li><span>EPQ — Quantum Computation</span><span class="grade">A</span></li>
+            <li><span>10 × GCSEs</span><span class="grade">9–8</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <span class="section-num reveal">IV.</span>
+      <h2 class="reveal">Selected <em>achievements</em>.</h2>
+      <div class="ach">
+        <div class="ach-row reveal"><span class="ach-cat">UKMT</span><span class="ach-text"><em>Gold</em> — Senior Maths Challenge</span></div>
+        <div class="ach-row reveal"><span class="ach-cat">UKMT</span><span class="ach-text">Best in school · Senior Kangaroo (Distinction)</span></div>
+        <div class="ach-row reveal"><span class="ach-cat">UKMT</span><span class="ach-text">Distinction — Mathematics Olympiad for Girls</span></div>
+        <div class="ach-row reveal"><span class="ach-cat">Bebras</span><span class="ach-text">Distinction — Computational Thinking · Top 10%</span></div>
+        <div class="ach-row reveal"><span class="ach-cat">School</span><span class="ach-text">Ranked 4<sup>th</sup> in Mathematics · 2<sup>nd</sup> in Computer Science</span></div>
+        <div class="ach-row reveal"><span class="ach-cat">Leadership</span><span class="ach-text">House Captain · School Council</span></div>
+        <div class="ach-row reveal"><span class="ach-cat">Mentoring</span><span class="ach-text">Digital Mentor · Peer Mentor · Junior School Volunteer</span></div>
+        <div class="ach-row reveal"><span class="ach-cat">Activities</span><span class="ach-text">Code Club · CS Extension · Maths Extension · Robotics</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="connect">
+    <div class="container">
+      <div class="connect-num reveal">V.</div>
+      <h3 class="reveal" data-delay="1">In <em>correspondence</em>.</h3>
+      <p class="reveal" data-delay="1">The best way to reach me is on LinkedIn. Always happy to hear from anyone interested in mathematics, computer science, quant finance, or just a curious conversation.</p>
+      <a class="connect-cta reveal" data-delay="2" href="https://www.linkedin.com/in/reyna-bulchandani/" target="_blank" rel="noopener" aria-label="Connect on LinkedIn (opens in a new tab)">Connect on LinkedIn</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <span>© <span id="year"></span> Reyna Bulchandani</span>
+    <span><a href="https://bulchandanis.com">bulchandanis.com</a></span>
+  </div>
+</footer>
+
+<div class="preview-switcher" aria-label="Design previews">
+  <a href="index.html">A · Academic</a>
+  <a href="option-b.html">B · Quant</a>
+  <a href="option-c.html" class="active">C · Minimal</a>
+</div>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  (function() {
+    if (!('IntersectionObserver' in window)) { document.querySelectorAll('.reveal').forEach(el => el.classList.add('is-visible')); return; }
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) { entry.target.classList.add('is-visible'); obs.unobserve(entry.target); }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  })();
+</script>
+</body>
+</html>
